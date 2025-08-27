@@ -1,0 +1,9 @@
+﻿id;name;material;part_number;mass_kg;position_x;position_y;position_z;length;width;height;price;link_to_manufacturer;manufacturer _name;country_of_origin
+fuselage_001;Fuselage Shell;Aluminum 2024;FUS-001;250.0;0.1;0;0;0.05;0.05;0.05;50000;https://manufacturer.com/fuselage;Fuselage Inc.;USA
+bulkhead_001;Nose Bulkhead;Titanium;BULK-001;45.0;0.2;0;0;0.05;0.05;0.05;12000;https://manufacturer.com/bulkhead;Bulkhead Corp.;Germany
+frame_005;Main Frame 5;Aluminum 7075;FRM-005;22.5;0.3;0;0;0.05;0.05;0.05;9000;https://manufacturer.com/frame;Frame Ltd.;USA
+wing_rib_l_01;Wing Rib Left 1;Carbon Fiber;WRL-01;5.5;0.5;0;0;0.05;0.05;0.05;1500;https://manufacturer.com/wingrib;Composite Wings;France
+wing_rib_r_01;Wing Rib Right 1;Carbon Fiber;WRR-01;5.5;0.6;0;0;0.05;0.05;0.05;1500;https://manufacturer.com/wingrib;Composite Wings;France
+avionics_box_001;Flight Control Unit;ABS Plastic;AVX-001;2.3;0.7;0;0;0.05;0.05;0.05;2500;https://manufacturer.com/avionics;Avionics Ltd.;USA
+engine_mount_001;Engine Mount Steel;Steel Alloy;ENG-001;30.0;0.8;0;0;0.05;0.05;0.05;8000;https://manufacturer.com/enginemount;Engine Mounts Inc.;Japan
+battery_pack_001;Lithium Battery Pack;Lithium-Ion;BAT-001;18.0;0.9;0;0;0.05;0.05;0.05;6000;https://manufacturer.com/battery;Battery Tech;South Korea
