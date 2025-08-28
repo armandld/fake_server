@@ -63,17 +63,6 @@ function startSimulation() {
     );
 
     // 50% → envoyer STL + JSON
-    if (progress === 50) {
-      clients.forEach(client => {
-        sendEvent(client, 'stlfile', {
-          url: `http://localhost:${PORT}/files/geometry2.stl`,
-          stream_sim: true
-        });
-        sendEvent(client, 'jsonfile', {
-          url: `http://localhost:${PORT}/files/streamlines.json`,
-        });
-      });
-    }
 
     // 100% → envoyer STL + CSV + complete
     if (progress === 100) {
