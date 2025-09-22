@@ -1,0 +1,26 @@
+[
+  {
+    "id": "3c40a684-f281-4ce4-9b1a-23377d00a374",
+    "name": "Project 1",
+    "status": "active",
+    "created_at": "2025-09-22T19:44:24.855Z",
+    "updated_at": "2025-09-22T19:44:24.855Z",
+    "designs": []
+  },
+  {
+    "id": "e0c8ea66-1fea-4f80-9cec-e4a5b779ffa0",
+    "name": "Project 2",
+    "status": "active",
+    "created_at": "2025-09-22T19:44:25.317Z",
+    "updated_at": "2025-09-22T19:44:25.317Z",
+    "designs": []
+  },
+  {
+    "id": "842c3e08-c033-4848-8cee-e20948da312d",
+    "name": "Project 3",
+    "status": "active",
+    "created_at": "2025-09-22T19:44:25.567Z",
+    "updated_at": "2025-09-22T19:44:25.567Z",
+    "designs": []
+  }
+]

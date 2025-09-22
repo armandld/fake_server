@@ -1,9 +1,9 @@
-﻿id;name;material;part_number;mass_kg;position_x;position_y;position_z;length;width;height;price;link_to_manufacturer;manufacturer _name;country_of_origin
-fuselage_001;Fuselage Shell;Aluminum 2024;FUS-001;250.0;0.1;0;0;0.05;0.05;0.05;50000;https://manufacturer.com/fuselage;Fuselage Inc.;USA
-bulkhead_001;Nose Bulkhead;Titanium;BULK-001;45.0;0.2;0;0;0.05;0.05;0.05;12000;https://manufacturer.com/bulkhead;Bulkhead Corp.;Germany
-frame_005;Main Frame 5;Aluminum 7075;FRM-005;22.5;0.3;0;0;0.05;0.05;0.05;9000;https://manufacturer.com/frame;Frame Ltd.;USA
-wing_rib_l_01;Wing Rib Left 1;Carbon Fiber;WRL-01;5.5;0.5;0;0;0.05;0.05;0.05;1500;https://manufacturer.com/wingrib;Composite Wings;France
-wing_rib_r_01;Wing Rib Right 1;Carbon Fiber;WRR-01;5.5;0.6;0;0;0.05;0.05;0.05;1500;https://manufacturer.com/wingrib;Composite Wings;France
-avionics_box_001;Flight Control Unit;ABS Plastic;AVX-001;2.3;0.7;0;0;0.05;0.05;0.05;2500;https://manufacturer.com/avionics;Avionics Ltd.;USA
-engine_mount_001;Engine Mount Steel;Steel Alloy;ENG-001;30.0;0.8;0;0;0.05;0.05;0.05;8000;https://manufacturer.com/enginemount;Engine Mounts Inc.;Japan
-battery_pack_001;Lithium Battery Pack;Lithium-Ion;BAT-001;18.0;0.9;0;0;0.05;0.05;0.05;6000;https://manufacturer.com/battery;Battery Tech;South Korea
+﻿id;name;key_technical_data;material;part_number;price;link_to_manufacturer;manufacturer_name;country_of_origin;image2D;position_x;position_y;position_z;length;width;height
+fuselage_001;Fuselage Shell;FUS-001;Aluminum 2024;DDKAAA;50000;https://manufacturer.com/fuselage;Fuselage Inc.;USA;https://www.passionautomobiles.fr/fr/media/252-lamborghini-huracan-2.jpg;0.1;0;0;0.05;0.05;0.05
+bulkhead_001;Nose Bulkhead;BULK-001;Titanium;DDKAAB;12000;https://manufacturer.com/bulkhead;Bulkhead Corp.;Germany;https://sf2.autoplus.fr/wp-content/uploads/autoplus/2023/05/alain-prost-s-ferrari-f40-up-for-auction.jpg;0.2;0;0;0.05;0.05;0.05
+frame_005;Main Frame 5;FRM-005;Aluminum 7075;DDKAAC;9000;https://manufacturer.com/frame;Frame Ltd.;USA;https://media.bateaux.com/src/images/news/articles/ima-image-22563.jpg;0.3;0;0;0.05;0.05;0.05
+wing_rib_l_01;Wing Rib Left 1;WRL-01;Carbon Fiber;DDKAAD;1500;https://manufacturer.com/wingrib;Composite Wings;France;https://www.sport-decouverte.com/magazine/wp-content/uploads/2022/02/Altitude-avion.jpg.webp;0.5;0;0;0.05;0.05;0.05
+wing_rib_r_01;Wing Rib Right 1;WRR-01;Carbon Fiber;DDKAAE;1500;https://manufacturer.com/wingrib;Composite Wings;France;;0.6;0;0;0.05;0.05;0.05
+avionics_box_001;Flight Control Unit;AVX-001;ABS Plastic;DDKAAF;2500;https://manufacturer.com/avionics;Avionics Ltd.;USA;;0.7;0;0;0.05;0.05;0.05
+engine_mount_001;Engine Mount Steel;ENG-001;Steel Alloy;DDKAAG;8000;https://manufacturer.com/enginemount;Engine Mounts Inc.;Japan;;0.8;0;0;0.05;0.05;0.05
+battery_pack_001;Lithium Battery Pack;BAT-001;Lithium-Ion;DDKAAH;6000;https://manufacturer.com/battery;Battery Tech;South Korea;;0.9;0;0;0.05;0.05;0.05

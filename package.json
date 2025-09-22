@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "@types/uuid": "^10.0.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
-    "three": "^0.179.1"
+    "three": "^0.179.1",
+    "uuid": "^13.0.0"
   },
   "name": "server",
   "version": "1.0.0",
