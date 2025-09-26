@@ -43,7 +43,7 @@ interface Project {
   user_email?: string;
   description?: string;
   mission_requirements?: Record<string, any>;
-  status: 'active' | 'archived' | 'deleted';
+  status: 'active' | 'running' | 'succeeded'|'failed';
   created_at: string;
   updated_at: string;
   current_design_id?: string;
@@ -94,15 +94,18 @@ app.put('/api/projects/:projectId', authMiddleware, (req, res) => {
   const project = projects.find(p => p.id === req.params.projectId);
   if (!project) return res.status(404).json({ error: 'Project not found' });
 
-  const { name, status } = req.body;
-  if (!name) return res.status(422).json({ error: 'Name is required' });
+  const { name, status, description, mission_requirements } = req.body;
 
-  project.name = name;
-  if (status) project.status = status;
+  if (name!== undefined) project.name = name;
+  if (status!== undefined) project.status = status;
+  if (description !== undefined) project.description = description;
+  if (mission_requirements !== undefined) project.mission_requirements = mission_requirements;
+
   project.updated_at = new Date().toISOString();
   saveProjects();
   res.json(project);
 });
+
 
 app.delete('/api/projects/:projectId', authMiddleware, (req, res) => {
   projects = projects.filter(p => p.id !== req.params.projectId);
@@ -110,39 +113,11 @@ app.delete('/api/projects/:projectId', authMiddleware, (req, res) => {
   res.status(200).json({ success: true });
 });
 
-// --- Designs Endpoints ---
 
-app.get('/api/projects/:projectId/designs', authMiddleware, (req, res) => {
-  const project = projects.find(p => p.id === req.params.projectId);
-  if (!project) return res.status(404).json({ error: 'Project not found' });
-  res.json(project.designs);
-});
+// --- SSE Endpoint --
 
-app.post('/api/projects/:projectId/design', authMiddleware, (req, res) => {
-  const project = projects.find(p => p.id === req.params.projectId);
-  if (!project) return res.status(404).json({ error: 'Project not found' });
 
-  const { name } = req.body;
-  const now = new Date().toISOString();
-  const newDesign: Design = {
-    id: uuidv4(),
-    project_id: project.id,
-    name: name || `Design ${project.designs.length + 1}`,
-    status: 'running',
-    progress: 0,
-    created_at: now,
-    started_at: now
-  };
-  project.designs.push(newDesign);
-  project.current_design_id = newDesign.id;
-  project.updated_at = now;
-  saveProjects();
-  res.status(201).json(newDesign);
-});
-
-// --- SSE Endpoint ---
-
-app.get('/api/designs/:designId/sse', authMiddleware, (req, res) => {
+app.get('/api/projects/:projectId/sse', authMiddleware, (req, res) => {
   res.setHeader('Content-Type', 'text/event-stream');
   res.setHeader('Cache-Control', 'no-cache');
   res.setHeader('Connection', 'keep-alive');
@@ -158,17 +133,57 @@ app.get('/api/designs/:designId/sse', authMiddleware, (req, res) => {
     if (progress >= 100) {
       sendEvent('status', { progress: 100, job_status: 'succeeded', message: 'Design completed' });
       sendEvent('complete', { message: 'Design finished successfully' });
-      clearInterval(interval);
-      res.end();
+      sendEvent( 'stlfile', {
+          url: `http://localhost:${PORT}/files/geometry.stl`,
+          stream_sim: false
+        });
+        sendEvent( 'glbfile', {
+          url: `http://localhost:${PORT}/files/battery.glb`,
+          n_glbfiles: 2
+        });
+        sendEvent( 'glbfile', {
+          url: `http://localhost:${PORT}/files/rc_engine.glb`,
+          n_glbfiles: 2
+        });
+        sendEvent( 'csvfile', {
+          url: `http://localhost:${PORT}/files/bom.csv`,
+          name: 'bom.csv'
+        });
+        clearInterval(interval);
     } else {
       sendEvent('status', { progress, job_status: 'running', message: 'Design running...' });
-
-      // Example extra events
-      if (progress === 30) sendEvent('stlfile', { url: `/files/design_${req.params.designId}.stl` });
-      if (progress === 60) sendEvent('glbfile', { url: `/files/design_${req.params.designId}.glb` });
-      if (progress === 90) sendEvent('csvfile', { name: `results_${req.params.designId}.csv` });
     }
   }, 1000);
+});
+
+app.get('/api/projects/:projectId/loadsse', authMiddleware, (req, res) => {
+  res.setHeader('Content-Type', 'text/event-stream');
+  res.setHeader('Cache-Control', 'no-cache');
+  res.setHeader('Connection', 'keep-alive');
+
+
+  const sendEvent = (event: string, data: any) => {
+    res.write(`event: ${event}\n`);
+    res.write(`data: ${JSON.stringify(data)}\n\n`);
+  };
+  setTimeout(() => {
+    sendEvent( 'stlfile', {
+            url: `http://localhost:${PORT}/files/geometry.stl`,
+            stream_sim: false
+          });
+          sendEvent( 'glbfile', {
+            url: `http://localhost:${PORT}/files/battery.glb`,
+            n_glbfiles: 2
+          });
+          sendEvent( 'glbfile', {
+            url: `http://localhost:${PORT}/files/rc_engine.glb`,
+            n_glbfiles: 2
+          });
+          sendEvent( 'csvfile', {
+            url: `http://localhost:${PORT}/files/bom.csv`,
+            name: 'bom.csv'
+          });
+  }, 100);      
 });
 
 // --- Legacy endpoints ---
@@ -181,24 +196,72 @@ app.get('/api/status', authMiddleware, (_req, res) => {
   res.json({ status: 'running', progress: 50 });
 });
 
-app.get('/api/sse', authMiddleware, (_req, res) => {
-  res.setHeader('Content-Type', 'text/event-stream');
-  res.setHeader('Cache-Control', 'no-cache');
-  res.setHeader('Connection', 'keep-alive');
 
-  let progress = 0;
-  const interval = setInterval(() => {
-    progress += 20;
-    if (progress >= 100) {
-      res.write(`data: ${JSON.stringify({ status: 'completed', progress: 100 })}\n\n`);
-      clearInterval(interval);
-      res.end();
-    } else {
-      res.write(`data: ${JSON.stringify({ status: 'running', progress })}\n\n`);
-    }
-  }, 1500);
+// --- Endpoint pour servir les fichiers ---
+app.get('/files/:filename', (req: Request, res: Response) => {
+  const { filename } = req.params;
+  const filePath = path.join(__dirname, 'fake_files', filename); // dossier local fake_files
+
+  if (!fs.existsSync(filePath)) {
+    return res.status(404).send('Fichier non trouvé');
+  }
+
+  const ext = path.extname(filename).toLowerCase();
+  if (ext === '.stl') res.setHeader('Content-Type', 'application/sla');
+  else if (ext === '.json') res.setHeader('Content-Type', 'application/json');
+  else if (ext === '.csv') res.setHeader('Content-Type', 'text/csv');
+
+  fs.createReadStream(filePath).pipe(res);
 });
+/*
+function startSimulation() {
+  const interval = setInterval(() => {
+    progress += 5;
+    //if (progress > 100) progress = 0; // restart after 100
 
+    // Envoie du progrès
+    clients.forEach(client =>
+      sendEvent(client, 'status', {
+        progress,
+        message: `Progression à ${progress}%`
+      })
+    );
+
+    // 50% → envoyer STL + JSON
+
+    // 100% → envoyer STL + CSV + complete
+    if (progress === 100) {
+      clients.forEach(client => {
+        sendEvent(client, 'stlfile', {
+          url: `http://localhost:${PORT}/files/geometry.stl`,
+          stream_sim: false
+        });
+        sendEvent(client, 'glbfile', {
+          url: `http://localhost:${PORT}/files/battery.glb`,
+          n_glbfiles: 2
+        });
+        sendEvent(client, 'glbfile', {
+          url: `http://localhost:${PORT}/files/rc_engine.glb`,
+          n_glbfiles: 2
+        });
+        sendEvent(client, 'csvfile', {
+          url: `http://localhost:${PORT}/files/bom.csv`,
+          name: 'bom.csv'
+        });
+        
+      });
+    }
+  }, 1000);
+}
+
+
+
+// --- POST pour lancer ---
+app.post('/api/start', (req: Request, res: Response) => {
+  res.json({ status: 'Simulation démarrée' });
+  if (progress === 0) startSimulation();
+});
+*/
 app.listen(PORT, () => {
   console.log(`🚀 Fake UAV Optimizer API running on http://localhost:${PORT}`);
 });
