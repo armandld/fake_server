@@ -17,43 +17,19 @@
       "dynamic_stability_damping_ratio": 0,
       "minimum_turn_radius_m": 0,
       "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0
+      "maximum_pitch_rate_degps": 0,
+      "maximum_stall_speed_kmh": 30
     },
     "status": "active",
     "created_at": "2025-10-01T23:00:44.265Z",
-    "updated_at": "2025-10-01T23:33:21.686Z",
+    "updated_at": "2025-10-05T17:01:34.262Z",
     "designs": []
   },
   {
-    "id": "dfe53b86-94ba-4774-9b6c-b46a1ff2ae6a",
-    "name": "Project 2",
-    "mission_requirements": {
-      "minimum_speed_mps": 39,
-      "maximum_speed_mps": 350,
-      "autonomy_hours": 10,
-      "minimum_payload_weight_kg": 40,
-      "range_km": 1000,
-      "navigation_mode": "Visual",
-      "minimum_climb_rate_mps": 0,
-      "maximum_operational_altitude_m": 0,
-      "minimum_operational_altitude_m": 0,
-      "maximum_linear_acceleration_mps2": 0,
-      "acceleration_margin_thrust_to_weight": 0,
-      "dynamic_stability_damping_ratio": 0,
-      "minimum_turn_radius_m": 0,
-      "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0
-    },
-    "status": "active",
-    "created_at": "2025-10-01T23:00:47.093Z",
-    "updated_at": "2025-10-02T11:56:39.921Z",
-    "designs": []
-  },
-  {
-    "id": "4430752e-d5b9-4db5-a321-aadcfba606c2",
+    "id": "af6c0b72-c486-4efe-8eab-f87c5897b50e",
     "name": "Project 3",
     "mission_requirements": {
-      "minimum_speed_mps": 100,
+      "minimum_speed_mps": 51,
       "maximum_speed_mps": 350,
       "autonomy_hours": 10,
       "minimum_payload_weight_kg": 40,
@@ -67,18 +43,19 @@
       "dynamic_stability_damping_ratio": 0,
       "minimum_turn_radius_m": 0,
       "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0
+      "maximum_pitch_rate_degps": 0,
+      "maximum_stall_speed_kmh": 30
     },
-    "status": "active",
-    "created_at": "2025-10-01T23:10:57.296Z",
-    "updated_at": "2025-10-01T23:33:15.748Z",
+    "status": "succeeded",
+    "created_at": "2025-10-03T18:57:46.984Z",
+    "updated_at": "2025-10-06T00:11:45.757Z",
     "designs": []
   },
   {
-    "id": "55a27d43-244f-45cb-8d2a-411f8cdd1d55",
+    "id": "7772132f-b6e6-4707-a908-75550010bd3d",
     "name": "Project 4",
     "mission_requirements": {
-      "minimum_speed_mps": 100,
+      "minimum_speed_mps": 51,
       "maximum_speed_mps": 350,
       "autonomy_hours": 10,
       "minimum_payload_weight_kg": 40,
@@ -92,61 +69,12 @@
       "dynamic_stability_damping_ratio": 0,
       "minimum_turn_radius_m": 0,
       "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0
+      "maximum_pitch_rate_degps": 0,
+      "maximum_stall_speed_kmh": 30
     },
-    "status": "active",
-    "created_at": "2025-10-01T23:29:46.663Z",
-    "updated_at": "2025-10-01T23:32:28.922Z",
-    "designs": []
-  },
-  {
-    "id": "5854cbaa-3c66-4a57-ab1f-b88a4d8ca1ab",
-    "name": "Project 5",
-    "mission_requirements": {
-      "minimum_speed_mps": 100,
-      "maximum_speed_mps": 350,
-      "autonomy_hours": 10,
-      "minimum_payload_weight_kg": 40,
-      "range_km": 1000,
-      "navigation_mode": "Visual",
-      "minimum_climb_rate_mps": 0,
-      "maximum_operational_altitude_m": 0,
-      "minimum_operational_altitude_m": 0,
-      "maximum_linear_acceleration_mps2": 0,
-      "acceleration_margin_thrust_to_weight": 0,
-      "dynamic_stability_damping_ratio": 0,
-      "minimum_turn_radius_m": 0,
-      "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0
-    },
-    "status": "active",
-    "created_at": "2025-10-01T23:29:48.888Z",
-    "updated_at": "2025-10-01T23:33:20.304Z",
-    "designs": []
-  },
-  {
-    "id": "fb46fdb6-026c-4d6f-8f4e-39e450d8ee5d",
-    "name": "Project 6",
-    "mission_requirements": {
-      "minimum_speed_mps": 30,
-      "maximum_speed_mps": 350,
-      "autonomy_hours": 10,
-      "minimum_payload_weight_kg": 40,
-      "range_km": 1000,
-      "navigation_mode": "Visual",
-      "minimum_climb_rate_mps": 0,
-      "maximum_operational_altitude_m": 0,
-      "minimum_operational_altitude_m": 0,
-      "maximum_linear_acceleration_mps2": 0,
-      "acceleration_margin_thrust_to_weight": 0,
-      "dynamic_stability_damping_ratio": 0,
-      "minimum_turn_radius_m": 0,
-      "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0
-    },
-    "status": "active",
-    "created_at": "2025-10-01T23:29:49.415Z",
-    "updated_at": "2025-10-01T23:32:24.774Z",
+    "status": "succeeded",
+    "created_at": "2025-10-05T17:43:33.534Z",
+    "updated_at": "2025-10-06T00:11:58.488Z",
     "designs": []
   }
 ]

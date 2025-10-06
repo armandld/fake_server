@@ -133,8 +133,8 @@ app.get('/api/projects/:projectId/sse', authMiddleware, (req, res) => {
     if (progress >= 100) {
       sendEvent('status', { progress: 100, job_status: 'succeeded', message: 'Design completed' });
       sendEvent('complete', { message: 'Design finished successfully' });
-      sendEvent( 'stlfile', {
-          url: `http://localhost:${PORT}/files/geometry.stl`,
+      sendEvent( 'animated_airframe', {
+          url: `http://localhost:${PORT}/files/uav_design_3_animated.glb`,
           stream_sim: false
         });
         sendEvent( 'glbfile', {
@@ -167,8 +167,8 @@ app.get('/api/projects/:projectId/loadsse', authMiddleware, (req, res) => {
     res.write(`data: ${JSON.stringify(data)}\n\n`);
   };
   setTimeout(() => {
-    sendEvent( 'stlfile', {
-            url: `http://localhost:${PORT}/files/geometry.stl`,
+    sendEvent( 'animated_airframe', {
+            url: `http://localhost:${PORT}/files/uav_design_3_animated.glb`,
             stream_sim: false
           });
           sendEvent( 'glbfile', {
