@@ -1,13 +1,13 @@
 [
   {
-    "id": "6f9f4b28-1d77-4cfc-b249-b55f923aba1d",
+    "id": "206f6466-90de-49af-bd65-74c6c10cc2f4",
     "name": "Project 1",
     "mission_requirements": {
-      "minimum_speed_mps": 51,
+      "minimum_speed_mps": 50,
       "maximum_speed_mps": 350,
       "autonomy_hours": 10,
       "minimum_payload_weight_kg": 40,
-      "range_km": 1000,
+      "range_km": 1002,
       "navigation_mode": "Visual",
       "minimum_climb_rate_mps": 0,
       "maximum_operational_altitude_m": 0,
@@ -17,23 +17,41 @@
       "dynamic_stability_damping_ratio": 0,
       "minimum_turn_radius_m": 0,
       "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0,
-      "maximum_stall_speed_kmh": 30
+      "maximum_pitch_rate_degps": 0
+    },
+    "design": {
+      "numEngines": 2,
+      "engineType": "hybrid",
+      "engineLocation": "",
+      "wingConfig": "",
+      "airframeType": "tail-sitter",
+      "vtolReq": "",
+      "payloadBayLocation": "",
+      "controlSurfaceType": "",
+      "maxWingspan": 1.65,
+      "maxEmptyWeight": 102
+    },
+    "manufacturing": {
+      "numUnits": 3,
+      "manufacturingProcesses": "",
+      "assemblyMethod": "",
+      "includeMaterials": "",
+      "excludeMaterials": ""
     },
     "status": "succeeded",
-    "created_at": "2025-10-06T00:20:20.513Z",
-    "updated_at": "2025-10-06T00:52:13.165Z",
+    "created_at": "2025-10-07T19:43:20.936Z",
+    "updated_at": "2025-10-07T20:12:26.009Z",
     "designs": []
   },
   {
-    "id": "4c144b5d-54f2-447f-910e-f069370391a5",
+    "id": "ce7beb14-eadb-4121-b691-5f05f6b7cea6",
     "name": "Project 2",
     "mission_requirements": {
-      "minimum_speed_mps": 51,
+      "minimum_speed_mps": 50,
       "maximum_speed_mps": 350,
       "autonomy_hours": 10,
       "minimum_payload_weight_kg": 40,
-      "range_km": 1000,
+      "range_km": 1002,
       "navigation_mode": "Visual",
       "minimum_climb_rate_mps": 0,
       "maximum_operational_altitude_m": 0,
@@ -43,23 +61,49 @@
       "dynamic_stability_damping_ratio": 0,
       "minimum_turn_radius_m": 0,
       "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0,
-      "maximum_stall_speed_kmh": 30
+      "maximum_pitch_rate_degps": 0
+    },
+    "design": {
+      "numEngines": 2,
+      "engineType": "hybrid",
+      "engineLocation": "",
+      "wingConfig": "",
+      "airframeType": "tail-sitter",
+      "vtolReq": "",
+      "payloadBayLocation": "",
+      "controlSurfaceType": "",
+      "maxWingspan": 1.65,
+      "maxEmptyWeight": 102
+    },
+    "manufacturing": {
+      "numUnits": 3,
+      "manufacturingProcesses": "",
+      "assemblyMethod": "",
+      "includeMaterials": "",
+      "excludeMaterials": ""
     },
     "status": "succeeded",
-    "created_at": "2025-10-06T00:31:43.287Z",
-    "updated_at": "2025-10-06T00:54:48.776Z",
+    "created_at": "2025-10-07T19:47:45.939Z",
+    "updated_at": "2025-10-07T20:14:21.866Z",
     "designs": []
   },
   {
-    "id": "5c688ee7-4cb0-429e-9cf6-7db7b04aca6c",
+    "id": "7830884d-d5ea-427a-baf7-8ed9ba19a2a4",
     "name": "Project 3",
+    "status": "active",
+    "created_at": "2025-10-07T20:05:29.683Z",
+    "updated_at": "2025-10-07T20:05:29.683Z",
+    "designs": []
+  },
+  {
+    "id": "bec53590-8bf6-4b48-976a-df4efc99ffb5",
+    "name": "Project 4",
     "mission_requirements": {
-      "minimum_speed_mps": 51,
+      "minimum_speed_mps": 50,
       "maximum_speed_mps": 350,
       "autonomy_hours": 10,
       "minimum_payload_weight_kg": 40,
-      "range_km": 1000,
+      "range_km": 1002,
       "navigation_mode": "Visual",
       "minimum_climb_rate_mps": 0,
       "maximum_operational_altitude_m": 0,
@@ -69,12 +113,30 @@
       "dynamic_stability_damping_ratio": 0,
       "minimum_turn_radius_m": 0,
       "maximum_roll_rate_degps": 0,
-      "maximum_pitch_rate_degps": 0,
-      "maximum_stall_speed_kmh": 30
+      "maximum_pitch_rate_degps": 0
     },
-    "status": "active",
-    "created_at": "2025-10-06T00:42:57.128Z",
-    "updated_at": "2025-10-06T00:43:02.230Z",
+    "design": {
+      "numEngines": 2,
+      "engineType": "hybrid",
+      "engineLocation": "",
+      "wingConfig": "",
+      "airframeType": "tail-sitter",
+      "vtolReq": "",
+      "payloadBayLocation": "",
+      "controlSurfaceType": "",
+      "maxWingspan": 1.65,
+      "maxEmptyWeight": 102
+    },
+    "manufacturing": {
+      "numUnits": 3,
+      "manufacturingProcesses": "",
+      "assemblyMethod": "",
+      "includeMaterials": "",
+      "excludeMaterials": ""
+    },
+    "status": "succeeded",
+    "created_at": "2025-10-07T20:11:51.943Z",
+    "updated_at": "2025-10-07T20:12:09.491Z",
     "designs": []
   }
 ]

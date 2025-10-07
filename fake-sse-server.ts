@@ -43,11 +43,13 @@ interface Project {
   user_email?: string;
   description?: string;
   mission_requirements?: Record<string, any>;
+  design?: Record<string, any>;
+  manufacturing?: Record<string, any>;
+  final?: Record<string, any>;
   status: 'active' | 'running' | 'succeeded'|'failed';
   created_at: string;
   updated_at: string;
   current_design_id?: string;
-  designs: Design[];
 }
 
 let projects: Project[] = fs.existsSync(PROJECTS_FILE)
@@ -65,7 +67,7 @@ app.get('/api/projects', authMiddleware, (_req, res) => {
 });
 
 app.post('/api/projects', authMiddleware, (req, res) => {
-  const { name, description, mission_requirements } = req.body;
+  const { name, description, mission_requirements, design, manufacturing } = req.body;
   if (!name) return res.status(422).json({ error: 'Name is required' });
 
   const now = new Date().toISOString();
@@ -74,6 +76,8 @@ app.post('/api/projects', authMiddleware, (req, res) => {
     name,
     description,
     mission_requirements,
+    design,
+    manufacturing,
     status: 'active',
     created_at: now,
     updated_at: now,
@@ -94,12 +98,14 @@ app.put('/api/projects/:projectId', authMiddleware, (req, res) => {
   const project = projects.find(p => p.id === req.params.projectId);
   if (!project) return res.status(404).json({ error: 'Project not found' });
 
-  const { name, status, description, mission_requirements } = req.body;
+  const { name, status, description, mission_requirements, design, manufacturing } = req.body;
 
   if (name!== undefined) project.name = name;
   if (status!== undefined) project.status = status;
   if (description !== undefined) project.description = description;
   if (mission_requirements !== undefined) project.mission_requirements = mission_requirements;
+  if (design !== undefined) project.design = design;
+  if (manufacturing !== undefined) project.manufacturing = manufacturing;
 
   project.updated_at = new Date().toISOString();
   saveProjects();
@@ -149,6 +155,10 @@ app.get('/api/projects/:projectId/sse', authMiddleware, (req, res) => {
           url: `http://localhost:${PORT}/files/bom.csv`,
           name: 'bom.csv'
         });
+        sendEvent( 'finals_params', {
+          url: `http://localhost:${PORT}/files/finals_params.json`,
+          name: 'finals_params.json'
+        });
         clearInterval(interval);
     } else {
       sendEvent('status', { progress, job_status: 'running', message: 'Design running...' });
@@ -182,6 +192,10 @@ app.get('/api/projects/:projectId/loadsse', authMiddleware, (req, res) => {
           sendEvent( 'csvfile', {
             url: `http://localhost:${PORT}/files/bom.csv`,
             name: 'bom.csv'
+          });
+          sendEvent( 'finals_params', {
+            url: `http://localhost:${PORT}/files/finals_params.json`,
+            name: 'finals_params.json'
           });
   }, 100);      
 });

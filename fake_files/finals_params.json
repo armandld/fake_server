@@ -1,0 +1,22 @@
+{
+  "cruise_speed_mps": 122,
+  "range_km": 950,
+  "autonomy_hours": 9,
+  "payload_weight_kg": 42,
+  "navigation_mode": "GPS",
+  "minimum_climb_rate_mps": 3.2,
+  "maximum_operational_altitude_m": 4500,
+  "minimum_operational_altitude_m": 50,
+  "maximum_linear_acceleration_mps2": 6.1,
+  "acceleration_margin_thrust_to_weight": 1.2,
+  "dynamic_stability_damping_ratio": 0.8,
+  "minimum_turn_radius_m": 120,
+  "maximum_roll_rate_degps": 150,
+  "maximum_pitch_rate_degps": 80,
+  "numEngines": 2,
+  "maxWingspan": 2.1,
+  "maxEmptyWeight": 95,
+  "numUnits": 10,
+  "leadtime": 6,
+  "cost": 37000
+}
